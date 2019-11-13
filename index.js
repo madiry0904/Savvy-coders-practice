@@ -40,3 +40,29 @@ function rugbyScore(tri) {
 
 const englandScore = rugbyScore(3);
 console.log(englandScore(14));
+
+function foo() {
+  console.trace();
+  bar();
+  console.trace();
+
+  return "foo";
+}
+
+function bar() {
+  console.trace();
+  baz();
+  console.trace();
+
+  return "bar";
+}
+
+function baz() {
+  console.trace();
+
+  return "baz";
+}
+
+console.log(foo());
+
+//"last in first out of the call stack" means were in the call stack with functions calling other functions and the last function called in the stack in the first one out of the stack
