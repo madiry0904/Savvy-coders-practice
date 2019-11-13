@@ -21,13 +21,22 @@ console.log(doMath(10, 5, subtract));
 
 //This is a function factory that returns another function
 //This fucntion factory uses the concept of a CLOSURE
-function initSportsScorer(pts) {
-  return function(score) {
+/*this is the outer function*/ function initSportsScorer(pts) {
+  /*this is the inner function */ return function(score) {
     return score + pts;
   };
 }
 
-const threePointer = initSportsScorer(3);
-console.log(threePointer(99));
+const threePointer = initSportsScorer(3); //the 3 is referencing "pts"
+console.log(threePointer(99)); //the 55 is referencing the score
 
-//answer is 101
+//answer is 102
+
+function rugbyScore(tri) {
+  return function(score) {
+    return score + tri;
+  };
+}
+
+const englandScore = rugbyScore(3);
+console.log(englandScore(14));
