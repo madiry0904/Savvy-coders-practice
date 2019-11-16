@@ -21,6 +21,16 @@ const myArray = [
   "Tracie",
   "Wallat"
 ];
+function getMs(namesArr) {
+  const mNames = [];
+
+  for (let i = 0; i < namesArr.length; i += 1) {
+    if (namesArr[i].startsWith("M")) {
+      mNames.push(namesArr[i]);
+    }
+  }
+  return mNames;
+}
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -28,4 +38,5 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-console.log(myArray[getRandomInt(0, myArray.length - 1)]);
+//console.log(myArray[getRandomInt(0, myArray.length - 1)]);
+console.log(getMs(myArray));
