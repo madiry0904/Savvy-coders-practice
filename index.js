@@ -1,26 +1,14 @@
-//FUNCTION CONSTRUCTOR
-function Person(fname, lname, age, occupation) {
-  this.fname = fname;
-  this.lname = lname;
+//Function Constructor
+function rightToVote(name, age, citizenship) {
+  this.name = name;
   this.age = age;
-  this.occ = occupation;
-
-  this.canDrink = function() {
-    if (this.age >= 21) {
-      return `I like to keep a 6-pack of beer in my my fridge`;
+  this.citizenship = citizenship;
+  this.canVote = function() {
+    if ((this.citizenship = "yes" && this.age >= 18)) {
+      return `Congrats ${this.name} you can vote!`;
     }
-    return `I like to keep soda in my fridge`;
-  };
-
-  this.getBio = function() {
-    return `Hi! My name is ${this.getFullName()}. I am ${this.age} years old.
-  ${this.canDrink()}`;
-  };
-
-  this.getFullName = function() {
-    return `${this.fname} ${this.lname}`;
+    return `I'm sorry ${this.name} you can't vote just yet.`;
   };
 }
-const me = new Person("Madi", "Ryan", 27, "AmeriCorps Vista");
-console.log(me.getFullName());
-console.log(me.getBio());
+const me = new rightToVote("Madi", 27, "yes");
+console.log(me.canVote());
