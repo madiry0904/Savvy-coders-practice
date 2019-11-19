@@ -1,15 +1,25 @@
-// '!' is a UNARY OPERATOR that means NOT!
-//TRUTHY vs FALSY think as something or nothing or does this have value(if "nothing" then will return false)
-// use the Boolean operator to check if a value is truthy or falsy
-console.log(!true);
+//IMPERATIVE ORIENTED PROGRAMMING (what we've been doing->line by line state what needs to be done)
+//OBJECT ORIENTED PROGRAMMING
 
-console.log(!0); //evaluates to true because saying not nothing
-console.log(!2);
-console.log(!199);
+function weekendActivity(sport, food, relax) {
+  return {
+    sport,
+    food,
+    relax,
 
-console.log(Boolean(0)); // trying to evaluate what # evaluates to
-console.log(Boolean(2)); //trying to evaluate what the # evaluates to
-console.log(Boolean(null)); // evaluates to false
-console.log(Boolean(undefined)); // evaluates to false
-console.log(Boolean([]));
-console.log(Boolean({}));
+    getSport: function() {
+      return `I like to go ${this.sport} when the weather is nice out!`;
+    },
+
+    getFood: function() {
+      return `I go to ${this.food} with my sister and friends in Central West End.`;
+    },
+
+    getRelax: function() {
+      return `Sunday is my day to relax and ${this.relax}`;
+    }
+  };
+}
+
+const myWeekend = weekendActivity("running", "brunch", "read a book");
+console.log(myWeekend.getSport());
