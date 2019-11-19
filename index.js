@@ -1,25 +1,26 @@
-//IMPERATIVE ORIENTED PROGRAMMING (what we've been doing->line by line state what needs to be done)
-//OBJECT ORIENTED PROGRAMMING
+//FUNCTION CONSTRUCTOR
+function Person(fname, lname, age, occupation) {
+  this.fname = fname;
+  this.lname = lname;
+  this.age = age;
+  this.occ = occupation;
 
-function weekendActivity(sport, food, relax) {
-  return {
-    sport,
-    food,
-    relax,
-
-    getSport: function() {
-      return `I like to go ${this.sport} when the weather is nice out!`;
-    },
-
-    getFood: function() {
-      return `I go to ${this.food} with my sister and friends in Central West End.`;
-    },
-
-    getRelax: function() {
-      return `Sunday is my day to relax and ${this.relax}`;
+  this.canDrink = function() {
+    if (this.age >= 21) {
+      return `I like to keep a 6-pack of beer in my my fridge`;
     }
+    return `I like to keep soda in my fridge`;
+  };
+
+  this.getBio = function() {
+    return `Hi! My name is ${this.getFullName()}. I am ${this.age} years old.
+  ${this.canDrink()}`;
+  };
+
+  this.getFullName = function() {
+    return `${this.fname} ${this.lname}`;
   };
 }
-
-const myWeekend = weekendActivity("running", "brunch", "read a book");
-console.log(myWeekend.getSport());
+const me = new Person("Madi", "Ryan", 27, "AmeriCorps Vista");
+console.log(me.getFullName());
+console.log(me.getBio());
