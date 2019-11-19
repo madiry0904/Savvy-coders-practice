@@ -1,35 +1,15 @@
-//11.18.19 FIZZBUZZ REVIEW
-//FUNCTION DECLARATION not Expression (const fizzbuzz = function () {})
+// '!' is a UNARY OPERATOR that means NOT!
+//TRUTHY vs FALSY think as something or nothing or does this have value(if "nothing" then will return false)
+// use the Boolean operator to check if a value is truthy or falsy
+console.log(!true);
 
-function fizzBuzz() {
-  for (let i = 1; i <= 100; i += 1) {
-    if (i % 3 === 0 && i % 5 === 0) {
-      console.log("FizzBuzz");
-    } else if (i % 3 === 0) {
-      console.log("Fizz");
-    } else if (i % 5 === 0) {
-      console.log("Buzz");
-    } else {
-      console.log(i);
-    }
-  }
-}
-fizzBuzz();
+console.log(!0); //evaluates to true because saying not nothing
+console.log(!2);
+console.log(!199);
 
-function initFizzBuzz(num1, num2) {
-  return function() {
-    for (let i = 1; i <= 100; i += 1) {
-      if (i % num1 === 0 && i % num2 === 0) {
-        console.log("FizzBuzz");
-      } else if (i % num1 === 0) {
-        console.log("Fizz");
-      } else if (i % num2 === 0) {
-        console.log("Buzz");
-      } else {
-        console.log(i);
-      }
-    }
-  };
-}
-const fizzBuzz46 = initFizzBuzz(4, 6);
-fizzBuzz46();
+console.log(Boolean(0)); // trying to evaluate what # evaluates to
+console.log(Boolean(2)); //trying to evaluate what the # evaluates to
+console.log(Boolean(null)); // evaluates to false
+console.log(Boolean(undefined)); // evaluates to false
+console.log(Boolean([]));
+console.log(Boolean({}));
