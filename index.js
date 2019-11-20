@@ -51,6 +51,7 @@ function manageYourHealth(name, stressLevel, fitnessLevel) {
 
   this.setStressLevel = function(stress2) {
     if (stress2 && typeof stress2 === "number") {
+      //this line checks if 1. the input is truthy or falsey and then 2. if it's the correct type of data
       this.stressLevel = stress2;
     } else {
       console.error("not a number");
