@@ -1,4 +1,4 @@
-function Person(fname, lname, age) {
+/*function Person(fname, lname, age) {
   this.fname = fname;
   this.lname = lname;
   this.age = age;
@@ -59,8 +59,48 @@ function manageYourHealth(name, stressLevel, fitnessLevel) {
   };
 }
 
-const me = new manageYourHealth("Annabel", 0, 2);
+const me = new manageYourHealth("Annabel", 0, 2); //this is basically creating a new instance to check
 //console.log(me.manageStress());
 //console.log(me.startExercise());
 //me.newFname();
 me.setStressLevel("Hello");
+*/
+
+//PROTOTYPES used to avoid repetition of functions
+
+function manageYourHealth(name, stressLevel, fitnessLevel) {
+  this.name = name;
+  this.stressLevel = stressLevel;
+  this.fitnessLevel = fitnessLevel;
+}
+manageYourHealth.prototype.manageStress = function() {
+  if (this.stressLevel <= 7 && this.fitnessLevel >= 7) {
+    return `Awesome job ${this.name} on your fitness! Let's focus on managing your stress levels because a stress level of ${this.stressLevel} is too high!`;
+  }
+  return `Wow you're doing awesome! Keep up the good work!`;
+};
+manageYourHealth.prototype.startExercise = function() {
+  if (this.stressLevel <= 7 && this.fitnessLevel <= 3) {
+    return `Great job on managing your stress ${this.name}!`;
+  }
+  return `Awesome job ${this.name} you're doing fantastic!`;
+};
+
+manageYourHealth.prototype.newFname = function(newFirstName) {
+  if (!newFirstName) {
+    console.log("no blank first names allowed");
+    return;
+  }
+  this.name = newFirstName;
+};
+
+manageYourHealth.prototype.setStressLevel = function(stress2) {
+  if (stress2 && typeof stress2 === "number") {
+    this.stressLevel = stress2;
+  } else {
+    console.error("not a number");
+  }
+};
+
+const me = new manageYourHealth("Annabelle, 0, 10");
+console.log(me.startExercise());
