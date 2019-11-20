@@ -1,106 +1,22 @@
-/*function Person(fname, lname, age) {
-  this.fname = fname;
-  this.lname = lname;
-  this.age = age;
+//ARRAYS CONCEPTS
+//iterate over an array with while and separate out the numbers and strings
 
-  this.getFullName = function() {
-    return `${this.fname} ${this.lname}`;
-  };
+const numbersAndStrings = [
+  12,
+  "ab",
+  3,
+  6,
+  "c",
+  90,
+  "web",
+  "dev",
+  1440,
+  "Rusty"
+];
 
-  this.setLastName = function(newLastName) {
-    if (!newLastName) {
-      console.error("no blank last name allowed");
-      return;
-    }
-    this.lname = newLastName;
-  };
+for (let i = 0; i <= numbersAndStrings.length; i += 1) {
+  console.log(numbersAndStrings[i]);
 }
-
-const older = new Person("John", "Smith", 77);
-
-console.log("older says", older);
-console.log(older.getFullName());
-
-older.setLastName();
-console.log("older says", older);
-
-function manageYourHealth(name, stressLevel, fitnessLevel) {
-  this.name = name;
-  this.stressLevel = stressLevel;
-  this.fitnessLevel = fitnessLevel;
-
-  this.manageStress = function() {
-    if (this.stressLevel <= 7 && this.fitnessLevel >= 7) {
-      return `Awesome job ${this.name} on your fitness! Let's focus on managing your stress levels because a stress level of ${this.stressLevel} is too high!`;
-    }
-    return `Wow you're doing awesome! Keep up the good work!`;
-  };
-  this.startExercise = function() {
-    if (this.stressLevel <= 7 && this.fitnessLevel <= 3) {
-      return `Great job on managing your stress ${this.name}!`;
-    }
-    return `Awesome job ${this.name} you're doing fantastic!`;
-  };
-  this.newFname = function(newFirstName) {
-    if (!newFirstName) {
-      console.log("no blank first names allowed");
-      return;
-    }
-    this.name = newFirstName;
-  };
-
-  this.setStressLevel = function(stress2) {
-    if (stress2 && typeof stress2 === "number") {
-      //this line checks if 1. the input is truthy or falsey and then 2. if it's the correct type of data
-      this.stressLevel = stress2;
-    } else {
-      console.error("not a number");
-    }
-  };
-}
-
-const me = new manageYourHealth("Annabel", 0, 2); //this is basically creating a new instance to check
-//console.log(me.manageStress());
-//console.log(me.startExercise());
-//me.newFname();
-me.setStressLevel("Hello");
-*/
-
-//PROTOTYPES used to avoid repetition of functions
-
-function manageYourHealth(name, stressLevel, fitnessLevel) {
-  this.name = name;
-  this.stressLevel = stressLevel;
-  this.fitnessLevel = fitnessLevel;
-}
-manageYourHealth.prototype.manageStress = function() {
-  if (this.stressLevel <= 7 && this.fitnessLevel >= 7) {
-    return `Awesome job ${this.name} on your fitness! Let's focus on managing your stress levels because a stress level of ${this.stressLevel} is too high!`;
-  }
-  return `Wow you're doing awesome! Keep up the good work!`;
-};
-manageYourHealth.prototype.startExercise = function() {
-  if (this.stressLevel <= 7 && this.fitnessLevel <= 3) {
-    return `Great job on managing your stress ${this.name}!`;
-  }
-  return `Awesome job ${this.name} you're doing fantastic!`;
-};
-
-manageYourHealth.prototype.newFname = function(newFirstName) {
-  if (!newFirstName) {
-    console.log("no blank first names allowed");
-    return;
-  }
-  this.name = newFirstName;
-};
-
-manageYourHealth.prototype.setStressLevel = function(stress2) {
-  if (stress2 && typeof stress2 === "number") {
-    this.stressLevel = stress2;
-  } else {
-    console.error("not a number");
-  }
-};
-
-const me = new manageYourHealth("Annabelle, 0, 10");
-console.log(me.startExercise());
+const popped = numbersAndStrings.pop();
+console.log(numbersAndStrings);
+console.log(popped);
