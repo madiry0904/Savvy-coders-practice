@@ -19,8 +19,19 @@ class Person {
     }
   }
 }
+class Employee extends Person {
+  constructor(name, age, job, empid) {
+    super(name, age, job);
+    this.id = empid;
+  }
+  get bio() {
+    return `I love my job!`;
+  }
+}
 const me = new Person("Madi", 27, "AmeriCorps Vista");
+const emp = new Employee("Madi", 27, "AmeriCorps Vista", 123);
 //console.log(me.firstName);
 //console.log(me.changeName);
 
 console.log((me.changeName = "Kelly"));
+console.log(emp);
