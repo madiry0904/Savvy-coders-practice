@@ -1,22 +1,26 @@
-//ARRAYS CONCEPTS
-//iterate over an array with while and separate out the numbers and strings
-
-const numbersAndStrings = [
-  12,
-  "ab",
-  3,
-  6,
-  "c",
-  90,
-  "web",
-  "dev",
-  1440,
-  "Rusty"
-];
-
-for (let i = 0; i <= numbersAndStrings.length; i += 1) {
-  console.log(numbersAndStrings[i]);
+//Using Class
+class Person {
+  constructor(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+  }
+  get firstName() {
+    return `My name is ${this.name}!`;
+  }
+  get bio() {
+    return `Hi my name is ${this.name}. I am a ${this.age} year old ${this.job}`;
+  }
+  set changeName(fname) {
+    if (fname) {
+      this.fname = fname;
+    } else {
+      console.error("bad name received");
+    }
+  }
 }
-const popped = numbersAndStrings.pop();
-console.log(numbersAndStrings);
-console.log(popped);
+const me = new Person("Madi", 27, "AmeriCorps Vista");
+//console.log(me.firstName);
+//console.log(me.changeName);
+
+console.log((me.changeName = "Kelly"));
