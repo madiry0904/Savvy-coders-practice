@@ -1,5 +1,4 @@
-import { POINT_CONVERSION_COMPRESSED } from "constants";
-
+/*
 function healthy(name, fitness, stress) {
   this.name = name;
   this.fitness = fitness;
@@ -43,6 +42,7 @@ const me = new healthy("Madi", 10, 2);
 me.setCalorie([2000, 4500, 7000, 10000]);
 console.log(me.getCalorie());
 
+*/
 //CLASS DOES NOT CHANGE THE FACT THAT WE ARE DOING PROTOTYPE-BASED OOP AND NOT CLASS-BASED OOP
 class Person {
   constructor(fname, lname, age, occupation) {
@@ -51,7 +51,19 @@ class Person {
     this.age = age;
     this.occupation = occupation;
   }
-  get bio() {
-    return;
+  get fullName() {
+    return `${this.fname} ${this.lname}`;
+  }
+  set changeName(newLName) {
+    if (newLName) {
+      this.lname = newLName;
+    } else {
+      console.error("Name not changed");
+    }
   }
 }
+
+const me = new Person("George", "Blezard", 28, "Teacher");
+console.log(me.fullName);
+me.changeName = "Ryan";
+console.log(me);
