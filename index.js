@@ -62,8 +62,26 @@ class Person {
     }
   }
 }
-
 const me = new Person("George", "Blezard", 28, "Teacher");
 console.log(me.fullName);
 me.changeName = "Ryan";
 console.log(me);
+
+class Employee extends Person {
+  constructor(fname, lname, age, occupation, empid) {
+    super(fname, lname, age, occupation); //uses information from Person constructor (this.age etc)
+    this.id = empid;
+  }
+  get empBio() {
+    return `My name is ${this.fname} ${this.lname} and my employee id is ${this.id}`;
+  }
+  set empBio(empid) {
+    this.id = empid;
+  }
+}
+
+const emp = new Employee("Madi", "Ryan", 27, "Program Analyst", 1234);
+console.log(emp);
+
+//with classes you always need a getter and a setter
+//getters usually have strings where setters set things
