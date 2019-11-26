@@ -78,9 +78,22 @@ class Employee extends Person {
   set empBio(empid) {
     this.id = empid;
   }
+  get assignments() {
+    let ret = `The current task list is as follows:`;
+
+    for (let i = 0; i < this.workload.length; i += 1) {
+      ret += `${this.workload[i]}`;
+    }
+    return ret;
+  }
+  set assignments(assignments) {
+    this.workload = assignments;
+  }
 }
 
 const emp = new Employee("Madi", "Ryan", 27, "Program Analyst", 1234);
+console.log(emp);
+emp.assignment = ["pick up the trash", "eat a bagel", "clear whiteboard"];
 console.log(emp);
 
 //with classes you always need a getter and a setter
