@@ -1,24 +1,29 @@
-//Array Concepts
-//call an array by using const myArray = [];
+/*Callback function can be called by another function
+-A function that is called back by another totally different function (unlike recursion that calls itself back) that gets thrown onto the call stack
+-when using call back you should use a closing brace and parentheses
+*/
 
-const numbers = [1, 2, 3, 4];
-const strings = ["hi", "world"];
-
+const numbers = [1, 2, 3, 4, 5, 6];
+const strings = ["hello", "world", "again"];
 const numbersAndStrings = numbers.concat(strings);
 
-function updatedNumbersAndStrings(originalArray, stringUpdate, numberUpdate) {
+/*numbers.forEach(number => {
+  console.log(number);
+});
+*/
+
+function updatedNumbersAndStrings(originalArr, stringUpdate, numberUpdate) {
   const updatedNumbersAndStrings = [];
-  for (let i = 0; i < originalArray.length; i += 1) {
-    if (typeof originalArray[i] === "string") {
-      updatedNumbersAndStrings.push((originalArray[i] += stringUpdate));
+  originalArr.forEach(el => {
+    console.log("current element is", el);
+
+    if (typeof el === "string") {
+      updatedNumbersAndStrings.push((el += stringUpdate));
     } else {
-      updatedNumbersAndStrings.push((originalArray[i] += numberUpdate));
+      updatedNumbersAndStrings.push((el += numberUpdate));
     }
-  }
-  return updatedNumbersAndStrings;
+    return updatedNumbersAndStrings;
+  });
 }
 
-console.log(updatedNumbersAndStrings(numbersAndStrings, "HELLO", 275));
-//console.log("numbers is", numbers);
-//console.log("strings is", strings);
-//console.log("numbersAndStrings is", numbersAndStrings);
+console.log(updatedNumbersAndStrings(numbersAndStrings, "Hello", 236));
