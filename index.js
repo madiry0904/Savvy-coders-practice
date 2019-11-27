@@ -1,55 +1,32 @@
-/*Callback function can be called by another function
--A function that is called back by another totally different function (unlike recursion that calls itself back) that gets thrown onto the call stack
--when using call back you should use a closing brace and parentheses
-
-
-const numbers = [1, 2, 3, 4, 5, 6];
-const strings = ["hello", "world", "again"];
-const numbersAndStrings = numbers.concat(strings);
-
-/*numbers.forEach(number => {
-  console.log(number);
-});
-
-
-function updatedNumbersAndStrings(originalArr, stringUpdate, numberUpdate) {
-  const updatedNumbersAndStrings = [];
-  originalArr.forEach(el => {
-    console.log("current element is", el);
-
-    if (typeof el === "string") {
-      updatedNumbersAndStrings.push((el += stringUpdate));
-    } else {
-      updatedNumbersAndStrings.push((el += numberUpdate));
-    }
-    return updatedNumbersAndStrings;
-  });
-}
-
-console.log(updatedNumbersAndStrings(numbersAndStrings, "Hello", 236));
-*/
-//ARRAY SUPERPOWER MAP takes a callback function acts on each and every element
-//map automatically creates an array and returns a new array with no mutations
-// we don't nee dto reacch outside scope to an empty array
-//map will always return an array that is the same length as the original array
-// myArray.map(callback fxn)
-const numbers = [1, 2, 3, 4, 5, 6];
-const strings = ["hello", "world", "again"];
-const numbersAndStrings = numbers.concat(strings);
-
-const results = numbers.map(number => {
-  return number + 1;
-});
-console.log(numbers);
-console.log(results);
-
-function updatedNumbersAndStrings(originalArr, stringUpdate, numberUpdate) {
-  return originalArr.map(el => {
-    if (typeof el === "string") {
-      return (el += stringUpdate);
-    }
-
-    return (el += numberUpdate);
-  });
-}
-console.log(updatedNumbersAndStrings(numbersAndStrings, "Hi", 236));
+//push
+const fruits = ["apples", "oranges", "pineapple"];
+const pushed = fruits.push("grapefruit");
+console.log(pushed);
+//pop
+const fruit = ["apples", "oranges", "grapefruit"];
+const frArray = fruit.pop();
+console.log(frArray);
+//slice finds the index and deletes everything above it
+const fruitz = ["apples", "oranges", "pineapple", "jackfruit"];
+const frSlice = fruitz.slice(fruitz.indexOf("pineapple"));
+console.log(frSlice);
+//slice with 2 arguments-includes the start but excludes the ending
+const fr = ["Pineapple", "apple", "grapefruit", "oranges"];
+const bestFruits = fr.slice(fr.pineappleIndex, 2);
+console.log(bestFruits);
+//splice changes the contents of an array by removing or replacing existing elements or adding new elements in it's place
+//use splice to remove jackfruit, dragonfruit, and pineapple and replace with raspberries
+const fruit1 = [
+  "apple",
+  "kiwi",
+  "pineapple",
+  "jackfruit",
+  "dragonfruit",
+  "pineapple",
+  "mango",
+  "mango",
+  "guava",
+  "strawberry"
+];
+const spliceReturns = fruit1.splice(3, 3, "raspberries");
+console.log(fruit1);
