@@ -1,22 +1,17 @@
-//push
-const fruits = ["apples", "oranges", "pineapple"];
-const pushed = fruits.push("grapefruit");
-console.log(pushed);
-//pop
-const fruit = ["apples", "oranges", "grapefruit"];
-const frArray = fruit.pop();
-console.log(frArray);
-//slice finds the index and deletes everything above it
-const fruitz = ["apples", "oranges", "pineapple", "jackfruit"];
-const frSlice = fruitz.slice(fruitz.indexOf("pineapple"));
-console.log(frSlice);
-//slice with 2 arguments-includes the start but excludes the ending
-const fr = ["Pineapple", "apple", "grapefruit", "oranges"];
-const bestFruits = fr.slice(fr.pineappleIndex, 2);
-console.log(bestFruits);
-//splice changes the contents of an array by removing or replacing existing elements or adding new elements in it's place
-//use splice to remove jackfruit, dragonfruit, and pineapple and replace with raspberries
-const fruit1 = [
+const myArr = [1, 2, 3, 4];
+const myOtherArr = [4, 5, 6];
+const somethingElse = [];
+
+Array.prototype.myMapper = function() {
+  return `I will not map`;
+};
+
+console.log(myArr.myMapper());
+console.log(myOtherArr.myMapper());
+
+
+//Splice Arrays
+const fruits = [
   "apple",
   "kiwi",
   "pineapple",
@@ -24,9 +19,33 @@ const fruit1 = [
   "dragonfruit",
   "pineapple",
   "mango",
-  "mango",
   "guava",
   "strawberry"
 ];
-const spliceReturns = fruit1.splice(3, 3, "raspberries");
-console.log(fruit1);
+const spliceReturns = fruits.splice(3, 3, "raspberries"); //remember index starts at 0
+console.log(fruits);
+console.log(spliceReturns);
+
+//Array Quiz
+const A = ["Harder", "Better", "Faster", "Stronger"];
+const B = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
+const C = [
+  "Urban Chestnut",
+  2009,
+  "4Hands",
+  2011,
+  "Rockwell",
+  2018
+];
+const D = [false, 0, "F", true, 1, "T"];
+*/
+console.log(C);
+
+
+const directions = ["North", "East", "South", "West"];
+directions.pop();//removes West
+directions.shift(); //removes North
+directions.push("Left"); //Puts left at the end
+directions.unshift("Up"); //puts up at the front
+
+console.log(directions);
