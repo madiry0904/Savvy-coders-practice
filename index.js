@@ -1,4 +1,5 @@
 //Array using map superpower with real data source
+//Map creates a new array off of an existing array
 
 /*const names = ["Misra", "Stevens", "Jamison", "Wright"];
 const newNames = names.map(name => "Mr." + `${name}`);
@@ -242,5 +243,11 @@ const users = [
     }
   }
 ];
-const userWithNewSalutations = users.map(user => `Mr. ${user.name}`);
-console.log(userWithNewSalutations);
+//const userWithNewSalutations = users.map(user => `Mr. ${user.name}`);
+//console.log(userWithNewSalutations);
+
+//TODO: Use map to create a new Array of Objects and only return username, email, website
+const usernameEmailWebsite = users.map(
+  user => `${user.name}, ${user.email}, ${user.website}`
+);
+console.log(usernameEmailWebsite);
