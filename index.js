@@ -239,21 +239,23 @@ const shortenedData = users.map(user => ({
 console.log(shortenedData);
 
 //Object Destructuring
-const shortData = users.map(({ name, address, phone }) => ({
+/*const shortData = users.map(({ name, address, phone }) => ({
   name,
   address,
   phone
 }));
 console.log(shortenedData);
-*/
+
 const nameCompany = users.map(user => ({
   name: user.name,
-  company: user.company.name
+  companyName: company.name
 }));
-console.log(nameCompany);
+*/
 
-const destructuredNameCompany = users.map(({ name, company }) => ({
-  name,
-  company
-}));
+const destructuredNameCompany = users
+  .map(({ name, company }) => ({
+    name,
+    companyName: company.name
+  }))
+  .filter(user => user.companyName.startsWith("A"));
 console.log(destructuredNameCompany);
