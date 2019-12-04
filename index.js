@@ -245,3 +245,15 @@ const shortData = users.map(({ name, address, phone }) => ({
   phone
 }));
 console.log(shortenedData);
+*/
+const nameCompany = users.map(user => ({
+  name: user.name,
+  company: user.company.name
+}));
+console.log(nameCompany);
+
+const destructuredNameCompany = users.map(({ name, company }) => ({
+  name,
+  company
+}));
+console.log(destructuredNameCompany);
