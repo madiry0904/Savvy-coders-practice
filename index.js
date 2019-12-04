@@ -231,31 +231,17 @@ const users = [
   }
 ];
 
-const shortenedData = users.map(user => ({
-  name: user.name,
-  address: user.address,
-  phone: user.phone
-}));
-console.log(shortenedData);
-
-//Object Destructuring
-/*const shortData = users.map(({ name, address, phone }) => ({
-  name,
-  address,
-  phone
-}));
-console.log(shortenedData);
-
-const nameCompany = users.map(user => ({
-  name: user.name,
-  companyName: company.name
-}));
-*/
-
-const destructuredNameCompany = users
-  .map(({ name, company }) => ({
-    name,
-    companyName: company.name
-  }))
-  .filter(user => user.companyName.startsWith("A"));
-console.log(destructuredNameCompany);
+//Nested Maps
+function stripDataForSpecifiedFields(data, keys) {
+  return data.map(d =>
+    keys.map(key => {
+      return {
+        [key]: d[key]
+      };
+    })
+  );
+}
+const userNameAndPhones = stripDataForSpecifiedFields(users, ["name", "phone"]);
+//d in this case represents individual users
+//YOU MUST USE BRACKET NOTATION (LINE 241)
+console.log(userNameAndPhones);
