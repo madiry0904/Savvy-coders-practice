@@ -231,17 +231,40 @@ const users = [
   }
 ];
 
-//Nested Maps
-function stripDataForSpecifiedFields(data, keys) {
-  return data.map(d =>
-    keys.map(key => {
-      return {
-        [key]: d[key]
-      };
-    })
-  );
+//MORE ARRAY SUPERPOWER EXAMPLES
+//Hoeger LLC HAS BEEN ACQUIRED BY YOST AND SONS
+//Use map to update the dataset so that all Hoeger LLC is replaced with YOST AND SONS
+
+/*const updatedCompany = users.map(user => {
+  if (user.company.name === "Hoeger LLC") {
+    user.company.name === "Yost and Sons";
+  }
+  return user;
+});
+//console.log(updatedCompany);
+
+//Refactor using destructuring
+const updatedCompany1 = users.map(({ company }) => {
+  if (company.name === "Hoeger LLC") {
+    company.name = "Yost and Sons";
+  }
+  return company;
+});
+//console.log(updatedCompany1);
+*/
+//Now wrap it into a function so you don't have to hardcode
+
+function mergeCompanies(data, acquiringCompany, acquiredCompany) {
+  return data.map(d => {
+    if (d.company.name === acquiredCompany) {
+      d.company.name = acquiringCompany;
+    }
+    return d;
+  });
 }
-const userNameAndPhones = stripDataForSpecifiedFields(users, ["name", "phone"]);
-//d in this case represents individual users
-//YOU MUST USE BRACKET NOTATION (LINE 241)
-console.log(userNameAndPhones);
+const updatedUserCompany2 = mergeCompanies(
+  users,
+  "Yost and Sons",
+  "Hoeger LLC"
+);
+console.log(updatedUserCompany2);
