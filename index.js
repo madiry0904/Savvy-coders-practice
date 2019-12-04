@@ -254,7 +254,7 @@ const updatedCompany1 = users.map(({ company }) => {
 */
 //Now wrap it into a function so you don't have to hardcode
 
-function mergeCompanies(data, acquiringCompany, acquiredCompany) {
+/*function mergeCompanies(data, acquiringCompany, acquiredCompany) {
   return data.map(d => {
     if (d.company.name === acquiredCompany) {
       d.company.name = acquiringCompany;
@@ -268,3 +268,26 @@ const updatedUserCompany2 = mergeCompanies(
   "Hoeger LLC"
 );
 console.log(updatedUserCompany2);
+*/
+//create funciton that takes in a company name and returns all users that work for a company using filter
+/*function getUsersForCompany(data, companyName) {
+  return data.filter(d => d.company.name === companyName);
+}
+const hoegerUsers = getUsersForCompany(users, "Hoeger LLC");
+console.log(hoegerUsers);
+*/
+
+//mapping over a function
+const directories = users.map(user => {
+  return {
+    [`${user.company.name}`]: getUsersForCompany(users, user.company.name)
+  };
+});
+
+function getUsersForCompany(data, companyName) {
+  return data.filter(d => d.company.name === companyName);
+}
+
+directories.forEach(directory => {
+  console.log(directory);
+});
