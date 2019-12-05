@@ -1,7 +1,8 @@
-/*class Healthy {
-  constructor(name, fitness) {
+class Healthy {
+  constructor(name, fitness, meal) {
     this.name = name;
     this.fitness = fitness;
+    this.meals = meal;
   }
 
   get fitnessLevel() {
@@ -11,11 +12,11 @@
     return `A fitness level of ${this.fitness} is too low, let's focus on upping your fitness days up!`;
   }
   get dinnerMealOption() {
-    let dinner = this.food;
-    for (let i = 0; i < this.food.length; i += 1) {
-      dinner[i];
-    }
-    return dinner;
+    return this.meals.filter(meal => {
+      if (meal.startsWith("p")) {
+        return meal;
+      }
+    });
   }
   set dinnerMealOption(mealArr) {
     if (mealArr) {
@@ -23,10 +24,8 @@
     }
   }
 }
-const me = new Healthy("George", 8);
+const myHealth = new Healthy("George", 8);
 me.setdinnerMealOption(["pizza", "salad", "hamburger", "pasta"]);
-console.log(me.getdinnerMealOption.pop());
-*/
 
 class Person {
   constructor(fname, favBeers) {
@@ -50,4 +49,6 @@ class Person {
 const me = new Person("Madi", ["IPA", "Stout", "Pilsner"]);
 //console.log(me.Name);
 //console.log(me.favBeers);
-console.log(me.myFavBeer);
+//console.log(me.myFavBeer);
+const beerArray = me.myFavBeer;
+console.log(beerArray);
