@@ -232,7 +232,7 @@ const user = [
 ];
 
 const userWebsites = user
-  .map(({ name, website }) => ({ name, website }))
+  .map(({ website }) => ({ website }))
   .filter(user => user.website.endsWith("info"));
 
 //name & website must match within the dataset
