@@ -6,13 +6,13 @@ function addDataSet(dataSet) {
   );
 }
 function divideByDataSetLength(dataSet) {
-  return (
-    dataSet.reduce((startingNum, currentNum) => startingNum + currentNum) /
-    dataSet.length
+  return dataSet.reduce(
+    (startingNum, currentTotal) => startingNum + currentTotal
   );
 }
+
 //console.log(addDataSet(nums));
-console.log(divideByDataSetLength(nums));
+//console.log(divideByDataSetLength(nums));
 
 const todos = [
   {
@@ -41,14 +41,18 @@ const todos = [
   }
 ];
 
+function returnCompletedStatus(dataSet) {
+  return dataSet.map(({ completed }) => ({ completed }));
+}
 function getId(dataSet) {
   return dataSet.map(({ id }) => id);
 }
 function getIdforCompleted(dataSet) {
   return dataSet
     .filter(({ completed }) => completed === true)
-    .map(({ id }) => id);
+    .map(({ id }) => ({ id }));
 }
 
-console.log(getId(todos));
+//console.log(getId(todos));
 console.log(getIdforCompleted(todos));
+//console.log(returnCompletedStatus(todos));
