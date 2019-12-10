@@ -1,21 +1,23 @@
-const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const strs = [
+  "hello",
+  "something",
+  3,
+  "boolean",
+  "hello",
+  "hello",
+  "hell",
+  "world",
+  "hello"
+];
+//write a fxn that takes an array and returns boolean representing if the word "hello" exists in the array and then lets see if there's anything in that new array with the true "hello"
+//this example is the long way to do it
 
-/*
- * TODO: Write a fxn. that grabs all of the odd elements in any ARRAY of NUMBERS.
- */
+function booleanHello(dataSet) {
+  return dataSet.map(d => d === "hello").filter(d => d === true).length;
+}
+console.log(booleanHello(strs));
 
-function filterOdds(dataSet) {
-  return dataSet.filter(num => num % 2 === 1);
-}
-console.log(filterOdds(nums));
+//the above says go into the dataset, map over the dataset for the keyword "hello" (will return booleans) then filter over to pull out the ones that do say hello. Use .length to see how many are in the new array
 
-// TODO: Write a funtion that returns the sum of all the numbers in any ARRAY of NUMBERS.
-function numberSummer(dataSet) {
-  return dataSet.reduce((startingNum, currentNum) => startingNum + currentNum);
-}
-console.log(numberSummer(nums));
-// TODO: MAP over nums and triple each number.
-function tripleEachNumber(dataSet) {
-  return dataSet.map(num => num * 3);
-}
-console.log(tripleEachNumber(nums));
+//includes does the above function
+console.log(strs.includes("hello"));
