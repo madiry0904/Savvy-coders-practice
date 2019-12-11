@@ -1,30 +1,35 @@
-const strs = [
-  "hello",
-  "something",
-  3,
-  "boolean",
-  "hello",
-  "hello",
-  "hell",
-  "world",
-  "hello"
+const students = [
+  {
+    name: "Jane",
+    score: 99
+  },
+  {
+    name: "Joe",
+    score: 88
+  },
+  { name: "Mark", score: 71 },
+  { name: "Sheamus", score: 55 },
+  { name: "Sanjay", score: 77 }
 ];
-//TODO: write a fxn that takes an array and returns boolean representing if the word "hello" exists in the array and then lets see if there's anything in that new array with the true "hello"
-//this example is the long way to do it
 
-function booleanHello(dataSet) {
-  return dataSet.map(d => d === "hello").filter(d => d === true).length;
+/**
+ * TODO: Build a function that takes in an Array of people with scores and a specified threshold,
+ * and gives back a list of NAMES ONLY of the ones who scored less than that threshold.
+ *
+ * HINTS:
+ * 1. Try filtering out based on if the SCORE is less than the threshold.
+ * 2. Chain a map() to map over those filtered results but only return the 'name'.
+ * 3. You can use OBJECT DESTRUCTURING...or not.
+ */
+function getLowScores(people, threshold) {
+  return people.filter(p => p.score <= threshold).map(({ name }) => name);
 }
-console.log(booleanHello(strs));
-
-//the above says go into the dataset, map over the dataset for the keyword "hello" (will return booleans) then filter over to pull out the ones that do say hello. Use .length to see how many are in the new array
-
-//includes keyword does the above function -> uses map and filter not length so just seeing if the funciton includes hello
-console.log(strs.includes("hello"));
-
-//TODO: write a function that takes an array of values and a target value and returns how many times that target value exists in the array
-
-function countOccurences(dataSet, target) {
-  return dataSet.filter(d => d === target).length;
+// OR USE DESTRUCTURING LIKE BELOW
+function getScores(people, threshold) {
+  return people
+    .filter(({ score }) => score <= threshold)
+    .map(({ name }) => name);
 }
-console.log(countOccurences(strs, "hello"));
+
+console.log(getLowScores(students, 80));
+console.log(getScores(students, 80));
