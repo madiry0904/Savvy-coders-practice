@@ -241,4 +241,29 @@ function getTLD(url) {
 const bizTLDS = users
   .map(({ website }) => getTLD(website))
   .filter(website => website === ".biz");
-console.log(bizTLDS);
+//console.log(bizTLDS);
+
+//TODO Sum the numbers using reduce
+const nums = [1, 2, 3, 4, 5, 6, 7, 8];
+/*
+function sumDaNumers(nums) {
+  return nums.reduce((total, currentNum) => (total += currentNum,));
+}
+console.log(sumDaNumers(nums));
+*/
+function sumDaNumersWith15AsStarting(num) {
+  return num.reduce((total, currentNum) => total + currentNum, 15); //15 takes on the first value when passed in
+}
+console.log(sumDaNumersWith15AsStarting(nums));
+//TODO Use reduce to tally up the number of people with each website TLD
+
+const TLDTally = users
+  .map(({ website }) => getTLD(website))
+  .reduce((tally, currentTLD) => {
+    if (!tally[currentTLD]) {
+      tally[currentTLD] = 1;
+    } else [(tally[currentTLD] += 1)];
+    tally[currentTLD] += 1;
+    return tally;
+  }, {});
+console.log(TLDTally);
