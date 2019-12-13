@@ -237,13 +237,8 @@ function getTLD(url) {
    */
   return url.slice(url.lastIndexOf("."));
 }
-// TODO: MAP over this and just give us back an Array of TLDs
-const TLDS = users.map(({ website }) => getTLD(website));
-console.log(TLDS);
-
-//TODO: Get TLDs for website and email
-
-const TLD = users.map(
-  ({ website, email }) => `${getTLD(website)} ${getTLD(email)}`
-);
-console.log(TLD);
+// TODO: filter only .biz websites
+const bizTLDS = users
+  .map(({ website }) => getTLD(website))
+  .filter(website => website === ".biz");
+console.log(bizTLDS);
