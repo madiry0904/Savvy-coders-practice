@@ -40,26 +40,17 @@ function getOddIdCount(dataSet) {
 
       return totalId;
     }, {});
-
-  // .reduce((totalCount, currentNum) => {
-  //   if (!totalCount[currentNum]) {
-  //     totalCount[currentNum] = 1;
-  //   } else [(totalCount[currentNum] += 1)];
-  //   totalCount[currentNum] += 1;
-  //   return totalCount;
-  // }, {});
-} //
+}
 console.log(getOddIdCount(todos));
 
-/*function countCompleted(dataSet) {
+function countCompleted(dataSet) {
   return dataSet
     .filter(({ completed }) => completed === true)
     .reduce((count, currentNum) => {
-      if (!count[currentNum]) {
-        count[currentNum] = 1;
-      } else [(count[currentNum] += 1)];
+      if (!count[currentNum.completed]) {
+        count[currentNum.completed] = 1;
+      } else [(count[currentNum.completed] += 1)];
       return count;
     }, {});
 }
 console.log(countCompleted(todos));
-*/
